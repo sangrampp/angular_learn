@@ -1,1 +1,9 @@
-<h1>Weather</h1>
+<h1>Forecast for {{ cityName }}</h1>
+<div class="panel panel-default" ng-repeat="w in weatherresult.list">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ w.dt*1000 | date :'MMM dd, yyyy' }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ w.temp.day }}
+  </div>
+</div>
