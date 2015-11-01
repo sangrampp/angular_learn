@@ -1,7 +1,7 @@
 <hr/>
-Days: <a href="#/weather/2" ng-class=" { bg-primary: days === '2' } ">2</a> | <a href="#/weather/5" ng-class=" { bg-primary: days === '5' } ">5</a> | <a href="#/weather/7" ng-class=" { bg-primary: days === '7' } ">7</a>
+Days: <a href="#/weather/2" ng-class=" { 'bg-primary': days === '2' } ">2</a> | <a href="#/weather/5" ng-class=" { 'bg-primary': days === '5' } ">5</a> | <a href="#/weather/7" ng-class=" { 'bg-primary': days === '7' } ">7</a>
 <hr/>
 <h1>Forecast for {{ cityName }}</h1>
 <div ng-repeat="w in weatherresult.list">
-    <daily-temperature></daily-temperature>
+    <daily-temperature weather-object="w" convert-to-date="convertToDate(dt)" convert-temperature="convertToCelsius(temp)"></daily-temperature>
 </div>
