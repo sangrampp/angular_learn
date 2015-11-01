@@ -34,7 +34,6 @@
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-default" ng-repeat="a in objLetters">{{ a.retLetter(a.ch) }}</button>            
           </div>
-          <div></div>
           <div>Select any letter to see if you guessed it in the word above (Successful guess will unhide the letter above)</div>
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-default" ng-repeat="a in alpha" ng-disabled="a.used"  ng-click="process(a)">{{ a.ch }}</button>            
