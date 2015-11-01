@@ -2,7 +2,7 @@ var hangManApp = angular.module('Hangman', []);
 
 hangManApp.controller('mainController', ['$scope', function($scope){
     var word = "SYNAPSE";
-    $scope.guess = 6;
+    $scope.triesRemaining = 6;
     
     var letters = word.split('');
     var alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -29,14 +29,25 @@ hangManApp.controller('mainController', ['$scope', function($scope){
     
     
     $scope.process = function(key){
-//        console.log('In process() ' + key.ch + key.used);
-        key.used = true;
-//        console.log('In process() ' + key.ch + key.used);
-        $scope.objLetters.forEach(function(obj){
-            if(obj.ch === key.ch){
-                obj.guessed = true;
+        if($scope.triesRemaining > 0){
+            //        console.log('In process() ' + key.ch + key.used);
+            key.used = true;
+            var successGuess = false;
+    //        console.log('In process() ' + key.ch + key.used);
+            $scope.objLetters.forEach(function(obj){
+                if(obj.ch === key.ch){
+                    obj.guessed = true;
+                    successGuess = true;
+                }                
+            });
+            if(!successGuess){
+                $scope.triesRemaining --;
             }
-        });
+        }
+        else{
+            alert('Game over! I win...');
+        }
+
     };
     console.log($scope.objLetters);
 }]);

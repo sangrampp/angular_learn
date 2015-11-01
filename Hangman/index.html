@@ -38,6 +38,8 @@
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-default" ng-repeat="a in alpha" ng-disabled="a.used"  ng-click="process(a)">{{ a.ch }}</button>            
           </div>
+          
+          <div>Tries remaining: {{ triesRemaining }}</div>
       </div>
     </div>
 
